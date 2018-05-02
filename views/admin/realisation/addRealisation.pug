@@ -1,0 +1,23 @@
+extends ../../includes/layout
+
+block content
+
+  p
+    | Formulaire pour ajouter une nouvelle réalisation
+    br
+
+  div.container
+    div.row
+      form(method='POST' action='/administration/realisation/add' enctype='multipart/form-data')
+        label(for='legende') Légende :
+           input(type='text', placeholder='legende' name='legende')
+        +space
+        label(for='datePublication') Date de publication :
+          input(type='text', placeholder='datePublication' name='datePublication')
+        label(for='type') Type :
+          input(type='text', placeholder='Type' name='type')
+        label(for='nomFichier') Nom de fichier :
+          input(type='file', placeholder='image' name='nomFichier')
+        br
+
+        button.button(type='submit') Ajouter
