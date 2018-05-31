@@ -7,7 +7,16 @@ var express = require('express')
 
 // Define routes handling profile requests
 .get('/galerie', function(req, res) {
-  res.render('galerie', {titre : 'La boîte à rideaux, galerie des réalisations'})
+  var userColl = req.db.get('userCollection');
+
+
+  var users = userColl.find({}, {}, function (e, docs) {
+      res.render('galerie', {
+          titre : 'La boîte à rideaux, galerie des réalisations',
+          users : docs
+      })
+  });
+
 })
 
 module.exports = router
