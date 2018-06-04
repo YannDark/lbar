@@ -40,13 +40,14 @@ app.use(function(req,res,next){
     next();
 });
 
-app.use('/', require('./controllers'))
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+app.use('/', require('./controllers'))
 
+
+//pour toutes les pages statiques (non admin)
 app.all("/*", function(req, res, next){
-    console.log('\n DIRECTORY : ' + __dirname)
+    req.session.destroy();
     next()
 })
 

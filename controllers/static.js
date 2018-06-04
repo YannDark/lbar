@@ -1,5 +1,5 @@
 var express = require('express')
-  , router = express.Router()
+    , router = express.Router()
 
 .get('/', function(req, res) {
   res.render('index', {titre : 'La boîte à rideaux, bienvenue'})
@@ -10,25 +10,27 @@ var express = require('express')
   res.render('connexion', {titre : 'Connexion à l\'espace admin'})
 })
 
-//vérifie si on a le bon utilisateur
+//vérifie si on a le bon utilisateur + connexion admin
 .post('/connect', function(req, res) {
-  var userColl = req.db.get('userCollection');
 
-  var users = userColl.find({name: req.name, password: req.password}, {}, function (e, docs) {
-      if(docs.length == 1) {
-        console.log("Connexion réussie");
-        res.render('galerie', {
-            titre : 'La boîte à rideaux, galerie des réalisations',
-            users : docs
-        })
-      } else {
-        console.log("Connexion échouée");
-        res.redirect("/connexion");
-      }
-  });
+    var userColl = req.db.get('userCollection');
+    var users = userColl.find({name: req.body.name, password: req.body.password}, {}, function (e, docs) {
+
+        if(docs.length == 1) {
+            console.log("Connexion réussie");
+            req.session.isConnected = true;
+            res.render('galerie', {
+                titre : 'La boîte à rideaux, galerie des réalisations',
+                users : docs
+            })
+        } else {
+            console.log("Connexion échouée");
+            res.redirect("/connexion");
+        }
+    });
 })
 
-// Define routes handling profile requests
+//affichage de la galerie
 .get('/galerie', function(req, res) {
     res.render('galerie', {
         titre : 'La boîte à rideaux, galerie des réalisations',
