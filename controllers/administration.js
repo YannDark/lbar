@@ -2,7 +2,6 @@ var express = require('express')
   , multer = require('multer')
   , app = express()
   , router = express.Router()
-  , session = require('express-session');
 
 
 const upload = multer({dest : 'public/img/rideaux'});
