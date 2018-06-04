@@ -5,10 +5,10 @@ var express = require('express')
   , port = 8080
   , serveIndex = require('serve-index')
   , mongoClient = require('mongodb')
-  , session = require('express-session')
   , monk = require('monk')
   , db = monk('localhost:27017/lbar')
   , exphbs  = require('express-handlebars')
+  , session = require('express-session');
 
 //app.set('views', __dirname + '/views')
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -18,9 +18,19 @@ app.set('view engine', 'handlebars');
 //app.use('/lbar/administration/', express.static(__dirname + '/public'))
 
 //app.use('/', express.static(__dirname + '/public'))
+app.use(session({secret: 'ssshhhhh'}));
+
+//test pour savoir si on connecté en accédant à l'espace admin
+app.all("/administration/*", function(req, res) {
+  console.log("entrée de app.all de l'admin");
+  if (!req.session.isConnected) {
+    console.log("Non connecté --> redirection vers l'accueil");
+    res.redirect("/");
+  }
+})
 
 app.use(morgan('dev'))
-app.use(session({secret : "ssssh"}));
+//app.use(session({secret : "ssssh"}));
 app.all('/*', express.static(__dirname + '/public'))
 
 

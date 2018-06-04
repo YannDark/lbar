@@ -1,0 +1,28 @@
+<p>
+    Vous trouverez ici les différentes réalisations de la Boïte à rideaux.
+    <br/>
+</p>
+
+<form action="/connect" method="post">
+    <label for=""></label>
+    <input type="text" name="" id="">
+    <label for=""></label>
+    <input type="password" name="" id="">
+
+    <input type="submit" value="Connexion">
+</form>
+
+<div class='container'>
+    <div class="row">
+        <div class='column column-50'>
+            chiffre de user : {{countUsers}}
+            {{#each users}}
+                <span>{{username}}</span>
+            {{/each}}
+        </div>
+
+        <div class='column column-50'>
+            turbo yolo
+        </div>
+    </div>
+</div>
