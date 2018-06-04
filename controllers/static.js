@@ -19,10 +19,7 @@ var express = require('express')
         if(docs.length == 1) {
             console.log("Connexion réussie");
             req.session.isConnected = true;
-            res.render('galerie', {
-                titre : 'La boîte à rideaux, galerie des réalisations',
-                users : docs
-            })
+            res.redirect("/administration/");
         } else {
             console.log("Connexion échouée");
             res.redirect("/connexion");

@@ -14,23 +14,33 @@ var express = require('express')
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-//app.use('/lbar/', express.static(__dirname + '/public'))
-//app.use('/lbar/administration/', express.static(__dirname + '/public'))
-
-//app.use('/', express.static(__dirname + '/public'))
+//lancement de la session
 app.use(session({secret: 'ssshhhhh'}));
 
 //test pour savoir si on connecté en accédant à l'espace admin
-app.all("/administration/*", function(req, res) {
-  console.log("entrée de app.all de l'admin");
-  if (!req.session.isConnected) {
-    console.log("Non connecté --> redirection vers l'accueil");
-    res.redirect("/");
-  }
+app.all("/administration/*", function(req, res, next) {
+    console.log("requete " + req.originalUrl);
+    if (!req.session.isConnected) {
+        console.log("Non connecté --> redirection vers l'accueil");
+        res.redirect("/");
+    } else {
+        console.log("Changement de layout");
+        //changement du layout
+        req.app.locals.layout = 'adminMain';
+        next()
+    }
+})
+
+//pour toutes les pages statiques (non admin)
+app.all("/", function(req, res, next){
+    console.log("requete  au dessus : " + req.originalUrl);
+    //changement du layout
+    req.app.locals.layout = 'main';
+    req.session.destroy();
+    next()
 })
 
 app.use(morgan('dev'))
-//app.use(session({secret : "ssssh"}));
 app.all('/*', express.static(__dirname + '/public'))
 
 
@@ -45,20 +55,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use('/', require('./controllers'))
 
 
-//pour toutes les pages statiques (non admin)
-app.all("/*", function(req, res, next){
-    req.session.destroy();
-    next()
-})
-
-//lancement mongodb
-//MongoClient.connect('mongodb://Y7nn:Gr1me8ergen!@127.0.0.1:27017/lbar', function (err, client) {
-/*mongoClient.connect('mongodb://127.0.0.1:27017/lbar', function (err, client) {
-    if (err) return console.log('ERREUR DE CO : ' + err)
-    db = client.db('lbar')
-
-})*/
-
 app.listen(port, function() {
-console.log('Listening on port ' + port)
+    console.log('Listening on port ' + port)
 })
