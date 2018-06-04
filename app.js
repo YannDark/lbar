@@ -43,7 +43,6 @@ app.all("/", function(req, res, next){
 app.use(morgan('dev'))
 app.all('/*', express.static(__dirname + '/public'))
 
-
 // Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
