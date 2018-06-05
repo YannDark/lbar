@@ -1,0 +1,18 @@
+header > div >img{
+    display    : block;
+    margin     : auto;
+}
+
+navbar > row{
+    width : 100%;
+    //background-color: black;
+}
+
+.menu-item {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 20px solid #f00;
+}

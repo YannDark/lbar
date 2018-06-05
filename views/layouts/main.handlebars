@@ -5,19 +5,27 @@
         <title>{{titre}}</title>
 
         <link rel="stylesheet" type="text/css" href="/css/milligram.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body>
+        <header class="row">
+            <div class="column">
+                <img src="/img/logo2.png" alt="">
+            </div>
+        </header>
 
-        <div class="container">
-            <row>
-                <h1 class="column column-75">La boîte à rideaux</h1>
 
-                <a class="button" href="/galerie"> Galerie</a>
-                <a class="button" href="/contact"> Contact</a>
+        <navbar class="row">
+            <row class="column">
+                <div>
+                    <a class="button" href="/galerie"><img src="/img/icons/gallery.png" alt="Visitez notre galerie" /> Galerie</a>
+                    <div menu-item></div>
+                </div>
             </row>
-        </div>
+        </navbar>
 
         <div class="container">
+            <a class="button" href="/contact"><img src="/img/icons/contact.png" alt="Contactez-nous" /> Contact</a>
             {{{body}}}
         </div>
         </hr>
