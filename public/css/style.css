@@ -1,18 +1,49 @@
+@font-face {
+    font-family: 'titleFont';
+    src: url('/font/ShintiaScript.ttf') format('truetype');
+}
+
+h1 {
+    font-family: titleFont;
+    color : #b00b0b;
+    text-decoration: underline;
+}
+
 header > div >img{
     display    : block;
     margin     : auto;
 }
 
-navbar > row{
-    width : 100%;
-    //background-color: black;
+navbar {
+    border-top: 3px solid black;
+    padding-top: 10px!important;
 }
 
-.menu-item {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
+navbar > ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+}
 
-  border-top: 20px solid #f00;
+navbar > ul > li {
+    float: left;
+    margin: 10px;
+}
+
+navbar > li a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+.align-to-image {
+    vertical-align: text-bottom;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border-top: solid black 3px;
 }

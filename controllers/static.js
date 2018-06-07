@@ -15,8 +15,8 @@ var express = require('express')
       port: 465, // port for secure SMTP
       transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
       auth: {
-        user: '',
-        pass: ''
+        user: 'boite.a.rideaux@gmail.com',
+        pass: 'Coventry93'
       }
     });
 
@@ -61,7 +61,7 @@ router.get('/', function(req, res) {
 })
 .post('/contact', function(req, res) {
     app.mailer.send('mail/mail', {
-        to: 'darricotte.yann@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+        to: 'boite.a.rideaux@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
         subject: 'Prise de contact', // REQUIRED.
         otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
     }, function (err) {
@@ -74,6 +74,13 @@ router.get('/', function(req, res) {
         res.render('contact', {
             titre : 'Contactez-nous'
         });
+    });
+})
+
+
+.get('/test', function(req, res) {
+    res.render('test', {
+        titre : 'Test du slip'
     });
 })
 
