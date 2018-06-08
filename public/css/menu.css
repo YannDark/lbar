@@ -1,0 +1,89 @@
+.ui-box {
+  text-decoration: none;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  position: relative;
+  vertical-align: baseline;
+  padding: 10px;
+}
+
+.top-leftToRight:before, .top-leftToRight:after, .top-leftToRight > .ui-border-element:before, .top-leftToRight > .ui-border-element:after {
+  content: '';
+  position: absolute;
+}
+
+
+.top-leftToRight:before {
+  border-top: 2px solid #333;
+  left: 0;
+  right: 100%;
+  top: 0;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.98, 0.51, 0.93);
+  -moz-transition-timing-function: cubic-bezier(0, 0.98, 0.51, 0.93);
+  -o-transition-timing-function: cubic-bezier(0, 0.98, 0.51, 0.93);
+  transition-timing-function: cubic-bezier(0, 0.98, 0.51, 0.93);
+  -webkit-transition-duration: 200ms;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.top-leftToRight:hover:before {
+  right: 0%;
+}
+
+.top-leftToRight:not(:hover):before {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.bottom-leftToRight:before, .bottom-leftToRight:after, .bottom-leftToRight > .ui-border-element:before, .bottom-leftToRight > .ui-border-element:after {
+  content: '';
+  position: absolute;
+}
+
+.bottom-leftToRight:after {
+  border-bottom: 2px solid #333;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.98, 0.51, 0.93);
+  -moz-transition-timing-function: cubic-bezier(0, 0.98, 0.51, 0.93);
+  -o-transition-timing-function: cubic-bezier(0, 0.98, 0.51, 0.93);
+  transition-timing-function: cubic-bezier(0, 0.98, 0.51, 0.93);
+  -webkit-transition-duration: 200ms;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.bottom-leftToRight:hover:after {
+  right: 0%;
+}
+
+
+.bottom-leftToRight:not(:hover):after {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
