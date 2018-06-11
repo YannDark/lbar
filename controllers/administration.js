@@ -2,9 +2,14 @@ var express = require('express')
   , multer = require('multer')
   , app = express()
   , router = express.Router()
-
+  , jsDatepicker = require("js-datepicker")
 
 const upload = multer({dest : 'public/img/rideaux'});
+
+const button = document.getElementById('myButton');
+button.addEventListener('click', function(e) {
+  console.log('button was clicked');
+});
 
 // Define routes handling profile requests
 router.get('/', function(req, res) {
@@ -24,5 +29,8 @@ router.get('/', function(req, res) {
     req.session.destroy();
     res.redirect("..");
 })
+
+
+
 
 module.exports = router;

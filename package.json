@@ -2217,6 +2217,7 @@
       "resolved": "https://registry.npmjs.org/isobject/-/isobject-3.0.1.tgz",
       "version": "3.0.1"
     },
+    "js-datepicker": "^3.1.1",
     "js-stringify": {
       "integrity": "sha1-Fzb939lyTyijaCrcYjCufk6Weds=",
       "resolved": "https://registry.npmjs.org/js-stringify/-/js-stringify-1.0.2.tgz",
