@@ -49,8 +49,14 @@ router.get('/', function(req, res) {
 //affichage de la galerie
 .get('/galerie', function(req, res) {
     res.render('galerie', {
-        titre : 'La boîte à rideaux, galerie des réalisations',
-        users : docs
+        titre : 'La boîte à rideaux, galerie des réalisations'
+  });
+})
+
+//affichage de la galerie
+.get('/apropos', function(req, res) {
+    res.render('apropos', {
+        titre : 'La boîte à rideaux, à propos'
   });
 })
 

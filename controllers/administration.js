@@ -6,10 +6,6 @@ var express = require('express')
 
 const upload = multer({dest : 'public/img/rideaux'});
 
-const button = document.getElementById('myButton');
-button.addEventListener('click', function(e) {
-  console.log('button was clicked');
-});
 
 // Define routes handling profile requests
 router.get('/', function(req, res) {

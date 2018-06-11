@@ -1,34 +1,36 @@
 <h1>Ajout d'une réalisation</h1>
 <div class="container">
 
-    <div class="row">
+    <form method='POST' action='/administration/realisation/add'
+        id="" enctype='multipart/form-data' class="dropzone">
+        <div class="row">
 
-        <div class="column">
-            <h2>Formulaire</h2>
-            <form method='POST' action='/administration/realisation/add' id="form" enctype='multipart/form-data'>
-                <label for="legende">Légende (texte ajouté sous l'image) :</label>
-                <input type="text" name="legende" id="">
-                <label for="datePublication">Date de publication :</label>
-                <input type="text" name="datePublication" id="datePublication" class="superDate">
-                <label for="type">Type :</label>
-                <select id="type" name="type">
-                    <option value="couture">Couture</option>
-                    <option value="ameublement">Ameublement</option>
-                </select>
-                <label for="nomFichier">Fichier :</label>
-                <input type="file" name="nomFichier" id="nomFichier">
-                <br>
-                <input type="button" class="button" value="Prévisualiser" />
-            </form>
-        </div>
+            <div class="column">
+                <h2>Formulaire</h2>
+                    <label for="legende">Légende (texte ajouté sous l'image) :</label>
+                    <input type="text" name="legende" id="">
+                    <label for="datePublication">Date de publication :</label>
+                    <input type="text" name="datePublication" id="datePublication" class="superDate">
+                    <label for="type">Type :</label>
+                    <select id="type" name="type">
+                        <option value="couture">Couture</option>
+                        <option value="ameublement">Ameublement</option>
+                    </select>
+                    <label for="nomFichier" id="labelFile">Fichier :</label>
+                    
+                    <br>
+                    <input type="button" class="button" value="Prévisualiser" />
+            </div>
 
-        <div id="previsualisation" class="column">
-            <h2>Prévisualisation</h2>
+            <div id="previsualisation" class="column ">
+                <h2>Prévisualisation</h2>
+            </div>
         </div>
+        <br>
+        <div class="row"><input type="submit" class="button column" value="Ajouter en base de données" /></div>
+
     </div>
-    <br>
-    <div class="row"><button id="sendForm" class="button column">Ajouter en base de données</button></div>
-</div>
+</form>
 
 
 
