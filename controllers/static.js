@@ -52,9 +52,21 @@ router.get('/', function(req, res) {
 
 //affichage de la galerie
 .get('/galerie', function(req, res) {
-    res.render('galerie', {
-        titre : 'La boîte à rideaux, galerie des réalisations'
-  });
+    if (req.param('aff')) {
+        var type = req.param('aff')
+    } else {
+        var type = "rideaux"
+    }
+
+    var galerieCol = req.db.get("galerieCollection").find({type: type}, {}, function (error, docs) {
+        if (!error) {
+            res.render('galerie', {
+                titre    : 'La boîte à rideaux, galerie des réalisations',
+                docs     : docs,
+                type     : type
+            });
+        }
+    })
 })
 
 //affichage de la galerie

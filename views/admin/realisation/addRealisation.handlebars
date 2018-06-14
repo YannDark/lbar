@@ -8,16 +8,14 @@
             <div class="column">
                 <h2>Formulaire</h2>
                     <label for="legende">Légende (texte ajouté sous l'image) :</label>
-                    <input type="text" name="legende" id="">
-                    <label for="datePublication">Date de publication :</label>
-                    <input type="text" name="datePublication" id="datePublication" class="superDate">
+                    <input type="text" name="legende" id="" required>
                     <label for="type">Type :</label>
                     <select id="type" name="type">
                         <option value="rideaux">Rideaux</option>
                         <option value="ameublement">Ameublement</option>
                     </select>
                     <label for="nomFichier" id="labelFile">Fichier :</label>
-                    <input type="file" name="nomFichier" id="nomFichier">
+                    <input type="file" name="nomFichier" id="nomFichier" required>
                     <br>
                     <input type="button" class="button" value="Prévisualiser" />
             </div>
@@ -35,5 +33,5 @@
 
 
 <script>
-    const picker = datepicker('.superDate', { position: 'c' });
+    const picker = datepicker('.superDate', { position: 'c', dateSelected: new Date(), formatter: function(el, date) {el.value = date.toDateString();}});
 </script>

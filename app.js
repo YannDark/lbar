@@ -8,10 +8,11 @@ var express = require('express')
   , monk = require('monk')
   , db = monk('localhost:27017/lbar')
   , exphbs  = require('express-handlebars')
-  , session = require('express-session');
+  , session = require('express-session')
+  , equal = require('./helpers/equal');
 
 //app.set('views', __dirname + '/views')
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main', helpers : {equal : equal}}));
 app.set('view engine', 'handlebars');
 
 //lancement de la session

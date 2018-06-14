@@ -4,3 +4,28 @@
     border : #6a6a69 2px solid;
     border-radius: 10px;
 }
+
+/* Tout ce qui est lié à la page galerie */
+.lien-galerie {
+    margin-top: 10px;
+    border-bottom: #b00b0b 2px solid;
+
+    font-size: 2em;
+    text-align : center;
+}
+.lien-galerie:hover {
+    border-bottom : none;
+}
+
+.selected {
+    border-left : #b00b0b 2px solid;
+}
+
+.galerie-item {
+    margin-top: 1em;
+}
+
+.galerie-img {
+    border-radius: 10px;
+    border : 2px black dashed;
+}

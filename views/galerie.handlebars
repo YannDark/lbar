@@ -1,15 +1,28 @@
-<p>
-    Vous trouverez ici les différentes réalisations de la Boïte à rideaux.
-    <br/>
-</p>
 <div class='container'>
+
     <div class="row">
         <div class='column column-50'>
-            
+            <a href="/galerie?aff=rideaux" class="column ui-box bottom-leftToRight lien-galerie {{#equal type "rideaux"}} selected {{/equal}}">
+                <img src="img/icons/window.png" alt="icone-rideaux">
+                Rideaux, voilages
+            </a>
         </div>
 
         <div class='column column-50'>
-            turbo yolo
+            <a href="/galerie?aff=ameublement" class="column ui-box bottom-leftToRight lien-galerie {{#equal type "ameublement"}} selected {{/equal}}">
+                <img src="img/icons/seat.png" alt="icone-canape">
+                Ameublement
+            </a>
         </div>
+    </div>
+
+    <div class="row">
+        {{#each docs}}
+            <div class="column column-25 galerie-item">
+                <img src="img/{{type}}/{{filename}}" alt="{{legende}}" class="galerie-img"/>
+                <br> <span>{{date}}</span>
+                <span>{{legende}}</span>
+            </div>
+        {{/each}}
     </div>
 </div>
