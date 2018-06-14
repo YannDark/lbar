@@ -17,6 +17,9 @@ app.set('view engine', 'handlebars');
 //lancement de la session
 app.use(session({secret: 'ssshhhhh'}));
 
+//app.use(morgan('dev'))
+app.all('/*', express.static(__dirname + '/public'))
+
 //test pour savoir si on connecté en accédant à l'espace admin
 app.all("/administration/*", function(req, res, next) {
     console.log("requete " + req.originalUrl);
@@ -24,7 +27,6 @@ app.all("/administration/*", function(req, res, next) {
         console.log("Non connecté --> redirection vers l'accueil");
         res.redirect("/");
     } else {
-        console.log("Changement de layout");
         //changement du layout
         req.app.locals.layout = 'adminMain';
         next()
@@ -40,8 +42,6 @@ app.all("/", function(req, res, next){
     next()
 })
 
-app.use(morgan('dev'))
-app.all('/*', express.static(__dirname + '/public'))
 
 // Make our db accessible to our router
 app.use(function(req,res,next){

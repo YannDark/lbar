@@ -2,7 +2,7 @@
 <div class="container">
 
     <form method='POST' action='/administration/realisation/add'
-        id="" enctype='multipart/form-data' class="dropzone">
+        id="" enctype='multipart/form-data' class="">
         <div class="row">
 
             <div class="column">
@@ -13,11 +13,11 @@
                     <input type="text" name="datePublication" id="datePublication" class="superDate">
                     <label for="type">Type :</label>
                     <select id="type" name="type">
-                        <option value="couture">Couture</option>
+                        <option value="rideaux">Rideaux</option>
                         <option value="ameublement">Ameublement</option>
                     </select>
                     <label for="nomFichier" id="labelFile">Fichier :</label>
-                    
+                    <input type="file" name="nomFichier" id="nomFichier">
                     <br>
                     <input type="button" class="button" value="Prévisualiser" />
             </div>

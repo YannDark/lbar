@@ -1,22 +1,25 @@
 var express = require('express')
     , app = express()
-    ,  mailer = require('express-mailer')
+    ,  mailer = require('express-mailer') //envoi de mail
     , router = express.Router()
-    , exphbs  = require('express-handlebars')
+    , exphbs  = require('express-handlebars') //template html
+    , PropertiesReader = require('properties-reader') //lecture fichier prop
+    , properties = PropertiesReader('other/lbar.properties');
+
 
     // pour l'envoi de mail
     app.engine('handlebars', exphbs({defaultLayout: 'main'}));
     app.set('view engine', 'handlebars');
 
     mailer.extend(app, {
-      from: 'no-reply@example.com',
+      from: 'no-reply@boitearideaux.com',
       host: 'smtp.gmail.com', // hostname
       secureConnection: true, // use SSL
       port: 465, // port for secure SMTP
       transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
       auth: {
-        user: 'boite.a.rideaux@gmail.com',
-        pass: 'Coventry93'
+        user: properties.get('gmail.account'),
+        pass: properties.get('gmail.password')
       }
     });
 
@@ -38,7 +41,8 @@ router.get('/', function(req, res) {
         if(docs.length == 1) {
             console.log("Connexion réussie");
             req.session.isConnected = true;
-            res.redirect("/administration/");
+            //res.redirect("/administration/");
+            res.redirect('administration/realisation/add');
         } else {
             console.log("Connexion échouée");
             res.redirect("/connexion");

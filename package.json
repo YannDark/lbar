@@ -781,7 +781,6 @@
       "resolved": "https://registry.npmjs.org/dot-prop/-/dot-prop-4.2.0.tgz",
       "version": "4.2.0"
     },
-    "dropzone": "^5.4.0",
     "duplexer": {
       "integrity": "sha1-rOb/gIwc5mtX0ev5eXessCM0z8E=",
       "resolved": "https://registry.npmjs.org/duplexer/-/duplexer-0.1.1.tgz",
@@ -2779,6 +2778,7 @@
       "resolved": "https://registry.npmjs.org/promise/-/promise-7.3.1.tgz",
       "version": "7.3.1"
     },
+    "properties-reader": "0.0.16",
     "proxy-addr": {
       "integrity": "sha512-jQTChiCJteusULxjBp8+jftSQE5Obdl3k4cnmLA6WXtK6XFuWRnvVL7aCiBqaLPM8c4ph0S4tKna8XvmIwEnXQ==",
       "requires": {
